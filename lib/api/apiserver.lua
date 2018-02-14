@@ -1,12 +1,6 @@
 -- Copyright (C) AlexWoo(Wu Jie) wj19840501@gmail.com
 
 
--- for GET /apiname/v1/test
---      APIServer will call apiname/v1/get.lua
--- for POST /apiname/v2/test
---      APIServer will call apiname/v1/post.lua
-
-
 local Response = require("api.response")
 Json = require("cjson")
 
