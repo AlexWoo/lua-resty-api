@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# install_path is the path openresty installed
+# test will mv t/nginx.conf to openresty/nginx/conf, t/test to openresty/lualib
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 install_path [test]"
+    exit 1
+fi
+
+openresty=$1
+if [ ! -d $openresty ];then
+    echo "openresty not install under $openresty"
+    exit 2
+fi
+
+cp -rf ./lib/* $openresty/lualib/
+echo "cp -rf ./lib/* $openresty/lualib"
+
+if [ "$2" == "test" ];then
+    cp -f ./t/nginx.conf $openresty/nginx/conf/
+    echo "cp -f ./t/nginx.conf $openresty/nginx/conf/"
+    cp -rf ./t/test $openresty/lualib/
+    echo "cp -rf ./t/test $openresty/lualib/"
+fi
