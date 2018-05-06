@@ -16,9 +16,10 @@ fi
 cp -rf ./lib/* $openresty/lualib/
 echo "cp -rf ./lib/* $openresty/lualib"
 
+cp -f ./conf/* $openresty/nginx/conf/
+echo "cp -f ./conf/* $openresty/nginx/conf/"
+
 if [ "$2" == "test" ];then
-    cp -f ./t/nginx.conf $openresty/nginx/conf/
-    echo "cp -f ./t/nginx.conf $openresty/nginx/conf/"
     cp -rf ./t/test $openresty/lualib/
     echo "cp -rf ./t/test $openresty/lualib/"
 fi
